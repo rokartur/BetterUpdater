@@ -9,7 +9,7 @@
 
 import AppKit
 
-enum MarkdownImageCache {
+public enum MarkdownImageCache {
     nonisolated(unsafe) static let shared: NSCache<NSString, NSImage> = {
         let cache = NSCache<NSString, NSImage>()
         cache.countLimit = 12
@@ -18,7 +18,8 @@ enum MarkdownImageCache {
         return cache
     }()
 
-    static func clearAll() {
+    /// Drop all cached release-note images. Call on memory pressure.
+    public static func clearAll() {
         shared.removeAllObjects()
     }
 }
@@ -35,7 +36,7 @@ private final class WeakTextAttachmentBox: @unchecked Sendable {
 /// as a selectable attributed string.
 final class MarkdownNSView: NSTextView {
 
-    nonisolated static let issueRepoSlug = "rokartur/\(BetterUpdater.configuration.displayName)"
+    nonisolated static let issueRepoSlug = "\(BetterUpdater.configuration.owner)/\(BetterUpdater.configuration.repo)"
 
     var markdown: String = "" {
         didSet { render() }
