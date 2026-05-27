@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:BetterUpdater}",
+            "name": "Debug betterupdater",
+            "target": "betterupdater",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug betterupdater"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:BetterUpdater}",
+            "name": "Release betterupdater",
+            "target": "betterupdater",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release betterupdater"
+        }
+    ]
+}
