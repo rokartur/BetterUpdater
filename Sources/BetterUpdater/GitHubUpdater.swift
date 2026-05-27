@@ -347,6 +347,11 @@ public final class GitHubUpdater: ObservableObject {
         // UI can surface silent helper failures instead of repeating the loop.
         verifyPreviousInstall()
 
+        // Sweep archives left from prior sessions (downloads that were never
+        // installed, or installs that bypassed per-archive cleanup). Detached
+        // so file IO never blocks app launch.
+        Task.detached { GitHubUpdater.purgeStaleDownloads() }
+
         // Schedule automatic check if not manual
         rescheduleAutomaticCheck()
     }
@@ -498,6 +503,9 @@ public final class GitHubUpdater: ObservableObject {
             // `manifestRequired` (the default).
             try await verifyReleaseManifest(release: release, asset: asset, downloadedAsset: localURL)
             downloadedFileURL = localURL
+            // Drop any older archives now that the new one is verified, so a
+            // download the user never installs can't leave the prior build behind.
+            GitHubUpdater.purgeStaleDownloads(keeping: localURL)
             state = .readyToInstall(localURL: localURL)
             UpdaterLog.updater.notice("Download complete and verified: \(localURL.path)")
         } catch {
@@ -1068,6 +1076,39 @@ public final class GitHubUpdater: ObservableObject {
         }
 
         return updaterDir
+    }
+
+    /// Remove leftover archives in `UpdaterDownloads`, optionally keeping one.
+    ///
+    /// `removeDownloadedArchiveIfNeeded` only cleans the single archive this
+    /// process downloaded, so stale `.dmg`/`.zip` pile up when a download is
+    /// never installed (user quits at `readyToInstall`) or when an earlier
+    /// version was installed via a path that bypassed that cleanup. Without
+    /// this sweep the directory grows unbounded across releases.
+    ///
+    /// Staged bundles handed to the installer live in `temporaryDirectory`,
+    /// not here — so a full sweep on launch never races an in-flight install.
+    nonisolated static func purgeStaleDownloads(keeping keepURL: URL? = nil) {
+        let fileManager = FileManager.default
+        guard let dir = try? updaterDownloadDirectoryURL(),
+              let entries = try? fileManager.contentsOfDirectory(
+                at: dir,
+                includingPropertiesForKeys: nil,
+                options: [.skipsHiddenFiles]
+              ) else { return }
+
+        let keepStandardized = keepURL?.standardizedFileURL
+        for entry in entries {
+            let ext = entry.pathExtension.lowercased()
+            guard ext == "zip" || ext == "dmg" else { continue }
+            if let keepStandardized, entry.standardizedFileURL == keepStandardized { continue }
+            do {
+                try fileManager.removeItem(at: entry)
+                UpdaterLog.updater.debug("Purged stale download: \(entry.path)")
+            } catch {
+                UpdaterLog.updater.warn("Failed to purge stale download at \(entry.path): \(error.localizedDescription)")
+            }
+        }
     }
 
     private func installApp(from sourceApp: URL) async throws {
