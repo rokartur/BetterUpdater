@@ -1344,7 +1344,7 @@ public final class GitHubUpdater: ObservableObject {
     /// Path to the bash helper's log. Persists across launches; tailed by
     /// `verifyPreviousInstall()` so the support team can ask the user to
     /// hit "Copy Diagnostics" instead of hunting for a path inside `TMPDIR`.
-    nonisolated static var helperLogURL: URL {
+    nonisolated public static var helperLogURL: URL {
         URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
             .appendingPathComponent("\(BetterUpdater.configuration.displayName)InstallHelper.log")
     }
@@ -1381,7 +1381,7 @@ public final class GitHubUpdater: ObservableObject {
     /// Maximum lines of the helper log to embed in the breadcrumb (kept small
     /// so a `Copy Diagnostics` paste stays comfortably under the typical 4 KB
     /// Slack/Discord paste cutoff).
-    nonisolated static let helperLogTailLineCap = 20
+    nonisolated public static let helperLogTailLineCap = 20
 
     /// Maximum bytes we read from the helper log when computing the tail.
     nonisolated static let helperLogReadByteCap = 1 * 1024 * 1024
