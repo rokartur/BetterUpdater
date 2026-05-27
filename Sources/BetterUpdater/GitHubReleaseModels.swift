@@ -11,16 +11,25 @@ import Foundation
 
 public enum UpdateCheckInterval: String, CaseIterable, Identifiable, Codable, Sendable {
     case manual = "manual"
-    case automatic = "automatic"
+    case automatic = "automatic"   // daily (24h) — the default cadence
+    case weekly = "weekly"         // every 7 days
+    case monthly = "monthly"       // every 30 days
 
     public var id: String { rawValue }
+
+    /// The automatic cadences a user can pick (excludes `.manual`), in order.
+    public static var selectableCadences: [UpdateCheckInterval] { [.automatic, .weekly, .monthly] }
 
     public var title: String {
         switch self {
         case .manual:
             return String(localized: "Manual", table: "Updater", bundle: .module)
         case .automatic:
-            return String(localized: "Automatic", table: "Updater", bundle: .module)
+            return String(localized: "Daily", table: "Updater", bundle: .module)
+        case .weekly:
+            return String(localized: "Every 7 days", table: "Updater", bundle: .module)
+        case .monthly:
+            return String(localized: "Every 30 days", table: "Updater", bundle: .module)
         }
     }
 
@@ -29,13 +38,17 @@ public enum UpdateCheckInterval: String, CaseIterable, Identifiable, Codable, Se
         case .manual:
             return String(localized: "Only check when you click the button", table: "Updater", bundle: .module)
         case .automatic:
-            return String(localized: "Automatically check and install updates", table: "Updater", bundle: .module)
+            return String(localized: "Check for updates once a day", table: "Updater", bundle: .module)
+        case .weekly:
+            return String(localized: "Check for updates every 7 days", table: "Updater", bundle: .module)
+        case .monthly:
+            return String(localized: "Check for updates every 30 days", table: "Updater", bundle: .module)
         }
     }
 
     /// Interval in seconds (nil for manual).
     /// DEBUG builds poll hourly so update plumbing changes surface fast;
-    /// release builds stay on the 24h cadence users expect.
+    /// release builds honour the chosen cadence.
     public var interval: TimeInterval? {
         switch self {
         case .manual:
@@ -46,6 +59,10 @@ public enum UpdateCheckInterval: String, CaseIterable, Identifiable, Codable, Se
             #else
             return 24 * 60 * 60 // 24 hours
             #endif
+        case .weekly:
+            return 7 * 24 * 60 * 60
+        case .monthly:
+            return 30 * 24 * 60 * 60
         }
     }
 }

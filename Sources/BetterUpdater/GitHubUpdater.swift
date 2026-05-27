@@ -44,6 +44,10 @@ enum GitHubUpdaterConfig {
     /// network blips recover quickly; long enough to not hammer GitHub.
     static let errorRetryInterval: TimeInterval = 15 * 60
 
+    /// Cadence forced while the beta channel is enabled, so testers pick up
+    /// new pre-release builds quickly regardless of the chosen cadence.
+    static let betaCheckInterval: TimeInterval = 60 * 60 // 1 hour
+
     /// Default check interval
     static let defaultCheckInterval: UpdateCheckInterval = .automatic
 }
@@ -214,6 +218,9 @@ public final class GitHubUpdater: ObservableObject {
     @Published public var includePreReleases: Bool {
         didSet {
             UserDefaults.standard.set(includePreReleases, forKey: "GitHubUpdater.includePreReleases")
+            // Beta channel forces an hourly cadence — re-arm the scheduler so
+            // toggling beta takes effect immediately.
+            if includePreReleases != oldValue { rescheduleAutomaticCheck() }
         }
     }
     @Published public var skippedVersion: String? {
@@ -285,13 +292,22 @@ public final class GitHubUpdater: ObservableObject {
     public var automaticChecksEnabled: Bool {
         checkInterval != .manual
     }
-    
+
+    /// Interval the scheduler actually uses. Beta channel forces the hourly
+    /// cadence; Manual disables automatic checks entirely.
+    public var effectiveCheckInterval: TimeInterval? {
+        guard checkInterval != .manual else { return nil }
+        if includePreReleases { return GitHubUpdaterConfig.betaCheckInterval }
+        return checkInterval.interval
+    }
+
     // MARK: - Initialization
     
     private init() {
-        // Always use automatic updates
-        self.checkInterval = .automatic
-        UserDefaults.standard.set(UpdateCheckInterval.automatic.rawValue, forKey: "GitHubUpdater.checkInterval")
+        // Restore the user's chosen cadence (default: daily/24h). Persisted by
+        // setCheckInterval(_:). Unknown/legacy values fall back to the default.
+        let storedInterval = UserDefaults.standard.string(forKey: "GitHubUpdater.checkInterval")
+        self.checkInterval = storedInterval.flatMap(UpdateCheckInterval.init(rawValue:)) ?? GitHubUpdaterConfig.defaultCheckInterval
         self.automaticDownloadEnabled = UserDefaults.standard.object(forKey: "GitHubUpdater.automaticDownloadEnabled") as? Bool ?? false
         self.automaticInstallEnabled = UserDefaults.standard.object(forKey: "GitHubUpdater.automaticInstallEnabled") as? Bool ?? true
         self.includePreReleases = UserDefaults.standard.object(forKey: "GitHubUpdater.includePreReleases") as? Bool ?? false
@@ -1281,8 +1297,8 @@ public final class GitHubUpdater: ObservableObject {
     private func rescheduleAutomaticCheck() {
         cancelAutomaticCheck()
 
-        // Only schedule if not manual
-        guard let interval = checkInterval.interval else {
+        // Only schedule if not manual. Beta channel forces the hourly cadence.
+        guard let interval = effectiveCheckInterval else {
             UpdaterLog.updater.debug("Automatic update checks disabled (manual mode)")
             return
         }
