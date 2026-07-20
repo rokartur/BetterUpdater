@@ -1373,10 +1373,29 @@ public final class GitHubUpdater: ObservableObject {
     ///   reliably fires at 13:00 tomorrow regardless of relaunches/sleep.
     /// - Clamps an anchor that lives in the future (clock skew / user moved
     ///   the system clock backwards) so we don't stall for years.
-    /// - Honours `lastFailureDate + errorRetryInterval` to retry sooner after
-    ///   a network blip, never later than the regular cadence.
+    /// - After a failure, anchors the retry to `lastFailureDate +
+    ///   errorRetryInterval` — never to the cadence anchor, which can sit in
+    ///   the past when checks keep failing (lastCheckDate only advances on
+    ///   success). A past date here means zero delay, and every failed check
+    ///   reschedules instantly while its reschedule cancels the in-flight
+    ///   fetch — the endless "Update check failed: cancelled" spin.
     private func computeNextCheckDate(interval: TimeInterval) -> Date {
-        let now = Date()
+        Self.nextCheckDate(
+            interval: interval,
+            lastCheckDate: lastCheckDate,
+            lastFailureDate: lastFailureDate,
+            now: Date()
+        )
+    }
+
+    /// Pure form of the scheduler math, suitable for unit testing without an
+    /// `@MainActor` instance or live `Date()` calls.
+    nonisolated static func nextCheckDate(
+        interval: TimeInterval,
+        lastCheckDate: Date?,
+        lastFailureDate: Date?,
+        now: Date
+    ) -> Date {
         let rawAnchor = lastCheckDate ?? now
         let safeAnchor = rawAnchor > now ? now : rawAnchor
         let successNext = safeAnchor.addingTimeInterval(interval)
@@ -1387,8 +1406,7 @@ public final class GitHubUpdater: ObservableObject {
         }
 
         let safeFailure = failure > now ? now : failure
-        let retryNext = safeFailure.addingTimeInterval(GitHubUpdaterConfig.errorRetryInterval)
-        return min(successNext, retryNext)
+        return safeFailure.addingTimeInterval(GitHubUpdaterConfig.errorRetryInterval)
     }
     
     private func cancelAutomaticCheck() {
