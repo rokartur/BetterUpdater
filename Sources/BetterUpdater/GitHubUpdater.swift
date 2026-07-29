@@ -310,7 +310,12 @@ public final class GitHubUpdater: ObservableObject {
         self.checkInterval = storedInterval.flatMap(UpdateCheckInterval.init(rawValue:)) ?? GitHubUpdaterConfig.defaultCheckInterval
         self.automaticDownloadEnabled = UserDefaults.standard.object(forKey: "GitHubUpdater.automaticDownloadEnabled") as? Bool ?? false
         self.automaticInstallEnabled = UserDefaults.standard.object(forKey: "GitHubUpdater.automaticInstallEnabled") as? Bool ?? true
-        self.includePreReleases = UserDefaults.standard.object(forKey: "GitHubUpdater.includePreReleases") as? Bool ?? false
+        // A build that is itself a pre-release opts into the beta channel by
+        // default: otherwise a freshly installed beta only ever sees stable
+        // releases and sits on a stale beta until the next stable ships.
+        // Explicit user choice (the toggle) still wins on every later launch.
+        self.includePreReleases = UserDefaults.standard.object(forKey: "GitHubUpdater.includePreReleases") as? Bool
+            ?? !ParsedVersion(HostAppInfo.appVersion).prerelease.isEmpty
         // "Skip This Version" tooltip promises "don't remind me about this version"
         // — honour that across launches. Auto-popup snooze (lastAutoShownAt)
         // still re-prompts when a NEW version ships even if user skipped older.
