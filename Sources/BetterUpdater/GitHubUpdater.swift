@@ -218,9 +218,11 @@ public final class GitHubUpdater: ObservableObject {
     @Published public var includePreReleases: Bool {
         didSet {
             UserDefaults.standard.set(includePreReleases, forKey: "GitHubUpdater.includePreReleases")
+            guard includePreReleases != oldValue else { return }
             // Beta channel forces an hourly cadence — re-arm the scheduler so
             // toggling beta takes effect immediately.
-            if includePreReleases != oldValue { rescheduleAutomaticCheck() }
+            rescheduleAutomaticCheck()
+            if !includePreReleases { Task { await offerStableAfterLeavingBeta() } }
         }
     }
     @Published public var skippedVersion: String? {
@@ -684,6 +686,42 @@ public final class GitHubUpdater: ObservableObject {
             }
             downloadedFileURL = nil
         }
+    }
+
+    /// Leaving the beta channel while running a pre-release: offer the way back.
+    /// An ordinary check only helps when the newest stable outranks the installed
+    /// beta (26.7-beta.2 → 26.7). A beta ahead of stable (26.8-beta.1 vs 26.7)
+    /// reports "up to date" and strands the tester on the beta forever, so that
+    /// older stable is offered as an explicit downgrade instead (#158).
+    private func offerStableAfterLeavingBeta() async {
+        // Same guard as checkForUpdates: never trample an in-flight install.
+        switch state {
+        case .downloading, .installing, .readyToInstall: return
+        default: break
+        }
+
+        let installedVersion = HostAppInfo.appVersion
+        guard !ParsedVersion(installedVersion).prerelease.isEmpty else { return }
+        // includePreReleases is already false here, so this hits /releases/latest.
+        guard let stable = try? await fetchLatestRelease(), stable.macOSAsset != nil else { return }
+
+        guard Self.shouldOfferStableDowngrade(installedVersion: installedVersion, stableVersion: stable.version) else {
+            await checkForUpdates(force: true)
+            return
+        }
+
+        latestRelease = stable
+        isNewerBuild = false
+        state = .available(version: stable.version, releaseNotes: stable.body)
+        UpdaterLog.updater.notice("Beta channel disabled on \(installedVersion) — offering stable \(stable.version)")
+        UpdateWindowPresenter.shared.show()
+    }
+
+    /// Whether the newest stable has to be offered as a downgrade: only when the
+    /// running build is a pre-release that semver-outranks it.
+    nonisolated static func shouldOfferStableDowngrade(installedVersion: String, stableVersion: String) -> Bool {
+        let installed = ParsedVersion(installedVersion)
+        return !installed.prerelease.isEmpty && ParsedVersion(stableVersion) < installed
     }
 
     /// Skip the currently offered update version
@@ -1613,5 +1651,12 @@ extension GitHubUpdater {
     /// Latest available version (if any)
     public var latestVersion: String? {
         latestRelease?.version
+    }
+
+    /// True when the offered release is *older* than the running build — the
+    /// way back to stable after leaving the beta channel (#158).
+    public var isDowngradeOffer: Bool {
+        guard let latestVersion else { return false }
+        return ParsedVersion(latestVersion) < ParsedVersion(currentVersion)
     }
 }

@@ -102,6 +102,19 @@ final class GitHubUpdateDecisionTests: XCTestCase {
         XCTAssertFalse(decision.isNewerBuild)
     }
 
+    // MARK: - Leaving the beta channel (#158)
+
+    func testLeavingBetaOffersOlderStableAsDowngrade() {
+        // Beta ahead of stable: an ordinary check would say "up to date".
+        XCTAssertTrue(GitHubUpdater.shouldOfferStableDowngrade(installedVersion: "26.8-beta.1", stableVersion: "26.7"))
+    }
+
+    func testLeavingBetaLeavesNewerStableToTheNormalUpdatePath() {
+        XCTAssertFalse(GitHubUpdater.shouldOfferStableDowngrade(installedVersion: "26.7-beta.2", stableVersion: "26.7"))
+        // Already on stable — nothing to go back to.
+        XCTAssertFalse(GitHubUpdater.shouldOfferStableDowngrade(installedVersion: "26.7", stableVersion: "26.6"))
+    }
+
     // MARK: - Stable asset re-upload detection
 
     /// Stable releases ship assets like `BetterAudio-26.6.2.dmg` with no

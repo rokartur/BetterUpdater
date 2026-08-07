@@ -713,7 +713,9 @@ final class UpdateWindowView: NSView {
     }
 
     private func updateTitleAndVersionLabel(for state: UpdateState) {
-        if updater.isNewerBuild {
+        if updater.isDowngradeOffer {
+            titleLabel.stringValue = String(localized: "Go back to the latest stable \(BetterUpdater.configuration.displayName)", table: "Updater", bundle: .module)
+        } else if updater.isNewerBuild {
             titleLabel.stringValue = String(localized: "An updated build of \(BetterUpdater.configuration.displayName) is available!", table: "Updater", bundle: .module)
         } else {
             titleLabel.stringValue = String(localized: "A new version of \(BetterUpdater.configuration.displayName) is available!", table: "Updater", bundle: .module)
@@ -725,19 +727,18 @@ final class UpdateWindowView: NSView {
 
         switch state {
         case .available(let version, _):
-            if updater.isNewerBuild {
-                versionLabel.attributedStringValue = arrowVersionString(
-                    from: updater.currentVersion,
-                    to: version,
-                    suffix: String(localized: "(new build)", table: "Updater", bundle: .module)
-                )
+            let suffix: String? = if updater.isDowngradeOffer {
+                String(localized: "(stable)", table: "Updater", bundle: .module)
+            } else if updater.isNewerBuild {
+                String(localized: "(new build)", table: "Updater", bundle: .module)
             } else {
-                versionLabel.attributedStringValue = arrowVersionString(
-                    from: updater.currentVersion,
-                    to: version,
-                    suffix: nil
-                )
+                nil
             }
+            versionLabel.attributedStringValue = arrowVersionString(
+                from: updater.currentVersion,
+                to: version,
+                suffix: suffix
+            )
             versionLabel.textColor = .secondaryLabelColor
         case .downloading:
             if let version = updater.latestVersion {
