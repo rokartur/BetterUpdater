@@ -1,6 +1,180 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%@ **%@** is ready to install." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ **%@** ist bereit zur Installation."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ **%@** is ready to install."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ **%@** está listo para instalarse."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ **%@** est prêt à être installé."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ **%@** è pronto per l’installazione."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ **%@** is klaar om te installeren."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ **%@** jest gotowe do instalacji."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ **%@** 已准备好安装。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ **%@** 已準備好安裝。"
+          }
+        }
+      }
+    },
+    "%@ app icon" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ App-Symbol"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ app icon"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Icono de la aplicación %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Icône de l'application %@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Icona dell'app %@"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ app-pictogram"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ikona aplikacji %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 应用图标"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 應用程式圖示"
+          }
+        }
+      }
+    },
+    "%@ is running from a temporary location and cannot install updates from here. Move it to your Applications folder to continue." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ wird von einem temporären Speicherort ausgeführt und kann von dort keine Updates installieren. Verschiebe es in den Ordner „Programme“, um fortzufahren."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is running from a temporary location and cannot install updates from here. Move it to your Applications folder to continue."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ se está ejecutando desde una ubicación temporal y no puede instalar actualizaciones desde ahí. Muévelo a la carpeta Aplicaciones para continuar."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ s’exécute depuis un emplacement temporaire et ne peut pas installer les mises à jour depuis celui-ci. Déplacez-le dans le dossier Applications pour continuer."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ è in esecuzione da una posizione temporanea e non può installare aggiornamenti da lì. Spostalo nella cartella Applicazioni per continuare."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ wordt uitgevoerd vanaf een tijdelijke locatie en kan vanaf daar geen updates installeren. Verplaats het naar je map Programma’s om door te gaan."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ działa z tymczasowej lokalizacji i nie może stamtąd instalować aktualizacji. Przenieś go do folderu Aplikacje, aby kontynuować."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 正从临时位置运行，无法从此处安装更新。请将它移到“应用程序”文件夹以继续。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 正從暫存位置執行，無法從此處安裝更新。請將它移到「應用程式」檔案夾以繼續。"
+          }
+        }
+      }
+    },
     "(new build)" : {
       "localizations" : {
         "de" : {
@@ -117,176 +291,118 @@
         }
       }
     },
-    "A new build of BetterAudio **%@** is available — you have an older build." : {
+    "A new version of %@ is available!" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ein neuer BetterAudio-Build **%@** ist verfügbar — Sie verwenden einen älteren Build."
+            "value" : "Eine neue Version von %@ ist verfügbar!"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A new build of BetterAudio **%@** is available — you have an older build."
+            "value" : "A new version of %@ is available!"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hay una nueva compilación de BetterAudio **%@** disponible; estás usando una compilación anterior."
+            "value" : "¡Una nueva versión de %@ está disponible!"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Une nouvelle build de BetterAudio **%@** est disponible — vous utilisez une build plus ancienne."
+            "value" : "Une nouvelle version de %@ est disponible !"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "È disponibile una nuova build di BetterAudio **%@** — stai usando una build precedente."
+            "value" : "È disponibile una nuova versione di %@!"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Er is een nieuwe BetterAudio-build **%@** beschikbaar — je gebruikt een oudere build."
+            "value" : "Een nieuwe versie van %@ is beschikbaar!"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dostępna jest nowa kompilacja BetterAudio **%@** — używasz starszej kompilacji."
+            "value" : "Nowa wersja %@ jest dostępna!"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "已有新的 BetterAudio **%@** 构建版本可用——你正在使用较旧的构建版本。"
+            "value" : "%@ 有新版本可用！"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "已有新的 BetterAudio **%@** 版本可用——你目前使用的是較舊的版本。"
+            "value" : "%@ 有新版本可用！"
           }
         }
       }
     },
-    "A new version of BetterAudio is available!" : {
+    "An updated build of %@ is available!" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Eine neue Version von BetterAudio ist verfügbar!"
+            "value" : "Ein aktualisierter %@-Build ist verfügbar!"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A new version of BetterAudio is available!"
+            "value" : "An updated build of %@ is available!"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "¡Una nueva versión de BetterAudio está disponible!"
+            "value" : "¡Hay una compilación actualizada de %@ disponible!"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Une nouvelle version de BetterAudio est disponible !"
+            "value" : "Une build mise à jour de %@ est disponible !"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "È disponibile una nuova versione di BetterAudio!"
+            "value" : "È disponibile una build aggiornata di %@!"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Een nieuwe versie van BetterAudio is beschikbaar!"
+            "value" : "Er is een bijgewerkte %@-build beschikbaar!"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nowa wersja BetterAudio jest dostępna!"
+            "value" : "Dostępna jest zaktualizowana kompilacja %@!"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio 有新版本可用！"
+            "value" : "%@ 的更新构建版本已可用！"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio 有新版本可用！"
-          }
-        }
-      }
-    },
-    "An updated build of BetterAudio is available!" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ein aktualisierter BetterAudio-Build ist verfügbar!"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "An updated build of BetterAudio is available!"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "¡Hay una compilación actualizada de BetterAudio disponible!"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Une build mise à jour de BetterAudio est disponible !"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "È disponibile una build aggiornata di BetterAudio!"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Er is een bijgewerkte BetterAudio-build beschikbaar!"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dostępna jest zaktualizowana kompilacja BetterAudio!"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "BetterAudio 的更新构建版本已可用！"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "BetterAudio 的更新版本已可用！"
+            "value" : "%@ 的更新版本已可用！"
           }
         }
       }
@@ -407,350 +523,350 @@
         }
       }
     },
-    "Automatically check and install updates" : {
+    "Cancel" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Automatisch nach Updates suchen und installieren"
+            "value" : "Abbrechen"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Automatically check and install updates"
+            "value" : "Cancel"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Buscar e instalar actualizaciones automáticamente"
+            "value" : "Cancelar"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vérifier et installer automatiquement les mises à jour"
+            "value" : "Annuler"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cerca e installa aggiornamenti automaticamente"
+            "value" : "Annulla"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Automatisch updates controleren en installeren"
+            "value" : "Annuleer"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Automatycznie sprawdzaj i instaluj aktualizacje"
+            "value" : "Anuluj"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "自动检查并安装更新"
+            "value" : "取消"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "自動檢查並安裝更新"
+            "value" : "取消"
           }
         }
       }
     },
-    "BetterAudio **%@** is now available — you have %@." : {
+    "Check for updates every 30 days" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio **%@** ist jetzt verfügbar — Sie haben %@."
+            "value" : "Alle 30 Tage nach Updates suchen"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio **%@** is now available — you have %@."
+            "value" : "Check for updates every 30 days"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio **%@** ya está disponible — tienes %@."
+            "value" : "Buscar actualizaciones cada 30 días"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio **%@** est maintenant disponible — vous avez %@."
+            "value" : "Rechercher les mises à jour tous les 30 jours"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio **%@** è ora disponibile — hai %@."
+            "value" : "Cerca aggiornamenti ogni 30 giorni"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio **%@** is nu beschikbaar — je hebt %@."
+            "value" : "Elke 30 dagen op updates controleren"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio **%@** jest już dostępne — masz %@."
+            "value" : "Sprawdzaj aktualizacje co 30 dni"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio **%@** 现已可用 — 你有 %@。"
+            "value" : "每 30 天检查一次更新"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio **%@** 現已可用 — 你有 %@。"
+            "value" : "每 30 天檢查一次更新"
           }
         }
       }
     },
-    "BetterAudio **%@** is ready to install." : {
+    "Check for updates every 7 days" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio **%@** ist bereit zur Installation."
+            "value" : "Alle 7 Tage nach Updates suchen"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio **%@** is ready to install."
+            "value" : "Check for updates every 7 days"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio **%@** está listo para instalarse."
+            "value" : "Buscar actualizaciones cada 7 días"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio **%@** est prêt à être installé."
+            "value" : "Rechercher les mises à jour tous les 7 jours"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio **%@** è pronto per l’installazione."
+            "value" : "Cerca aggiornamenti ogni 7 giorni"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio **%@** is klaar om te installeren."
+            "value" : "Elke 7 dagen op updates controleren"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio **%@** jest gotowe do instalacji."
+            "value" : "Sprawdzaj aktualizacje co 7 dni"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio **%@** 已准备好安装。"
+            "value" : "每 7 天检查一次更新"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio **%@** 已準備好安裝。"
+            "value" : "每 7 天檢查一次更新"
           }
         }
       }
     },
-    "BetterAudio app icon" : {
+    "Check for updates once a day" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio App-Symbol"
+            "value" : "Einmal täglich nach Updates suchen"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio app icon"
+            "value" : "Check for updates once a day"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Icono de la aplicación BetterAudio"
+            "value" : "Buscar actualizaciones una vez al día"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Icône de l'application BetterAudio"
+            "value" : "Rechercher les mises à jour une fois par jour"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Icona dell'app BetterAudio"
+            "value" : "Cerca aggiornamenti una volta al giorno"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio app-pictogram"
+            "value" : "Eén keer per dag op updates controleren"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ikona aplikacji BetterAudio"
+            "value" : "Sprawdzaj aktualizacje raz dziennie"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio 应用图标"
+            "value" : "每天检查一次更新"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio 應用程式圖示"
+            "value" : "每天檢查一次更新"
           }
         }
       }
     },
-    "BetterAudio is running from a temporary location and cannot install updates from here. Move it to your Applications folder to continue." : {
+    "Close" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio wird von einem temporären Speicherort ausgeführt und kann von dort keine Updates installieren. Verschiebe es in den Ordner „Programme“, um fortzufahren."
+            "value" : "Schließen"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio is running from a temporary location and cannot install updates from here. Move it to your Applications folder to continue."
+            "value" : "Close"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio se está ejecutando desde una ubicación temporal y no puede instalar actualizaciones desde ahí. Muévelo a la carpeta Aplicaciones para continuar."
+            "value" : "Cerrar"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio s’exécute depuis un emplacement temporaire et ne peut pas installer les mises à jour depuis celui-ci. Déplacez-le dans le dossier Applications pour continuer."
+            "value" : "Fermer"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio è in esecuzione da una posizione temporanea e non può installare aggiornamenti da lì. Spostalo nella cartella Applicazioni per continuare."
+            "value" : "Chiudi"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio wordt uitgevoerd vanaf een tijdelijke locatie en kan vanaf daar geen updates installeren. Verplaats het naar je map Programma’s om door te gaan."
+            "value" : "Sluit"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio działa z tymczasowej lokalizacji i nie może stamtąd instalować aktualizacji. Przenieś go do folderu Aplikacje, aby kontynuować."
+            "value" : "Zamknij"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio 正从临时位置运行，无法从此处安装更新。请将它移到“应用程序”文件夹以继续。"
+            "value" : "关闭"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio 正從暫存位置執行，無法從此處安裝更新。請將它移到「應用程式」檔案夾以繼續。"
+            "value" : "關閉"
           }
         }
       }
     },
-    "Could Not Move BetterAudio" : {
+    "Could Not Move %@" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio konnte nicht verschoben werden"
+            "value" : "%@ konnte nicht verschoben werden"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Could Not Move BetterAudio"
+            "value" : "Could Not Move %@"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No se pudo mover BetterAudio"
+            "value" : "No se pudo mover %@"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Impossible de déplacer BetterAudio"
+            "value" : "Impossible de déplacer %@"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Impossibile spostare BetterAudio"
+            "value" : "Impossibile spostare %@"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio kon niet worden verplaatst"
+            "value" : "%@ kon niet worden verplaatst"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nie można przenieść BetterAudio"
+            "value" : "Nie można przenieść %@"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "无法移动 BetterAudio"
+            "value" : "无法移动 %@"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "無法移動 BetterAudio"
+            "value" : "無法移動 %@"
           }
         }
       }
@@ -929,6 +1045,122 @@
         }
       }
     },
+    "Could not verify the update’s signature." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Signatur des Updates konnte nicht überprüft werden."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not verify the update’s signature."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se ha podido verificar la firma de la actualización."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de vérifier la signature de la mise à jour."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossibile verificare la firma dell’aggiornamento."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kan de handtekening van de update niet verifiëren."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nie udało się zweryfikować podpisu aktualizacji."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法验证此更新的签名。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法驗證此更新的簽章。"
+          }
+        }
+      }
+    },
+    "Daily" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Täglich"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daily"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diariamente"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quotidien"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ogni giorno"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dagelijks"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Codziennie"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每天"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每天"
+          }
+        }
+      }
+    },
     "Disable Betas" : {
       "localizations" : {
         "de" : {
@@ -1103,60 +1335,60 @@
         }
       }
     },
-    "Downloading BetterAudio **%@**…" : {
+    "Downloading %@ **%@**…" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lade BetterAudio **%@** herunter…"
+            "value" : "Lade %@ **%@** herunter…"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Downloading BetterAudio **%@**…"
+            "value" : "Downloading %@ **%@**…"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Descargando BetterAudio **%@**…"
+            "value" : "Descargando %@ **%@**…"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Téléchargement de BetterAudio **%@**…"
+            "value" : "Téléchargement de %@ **%@**…"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Download di BetterAudio **%@**…"
+            "value" : "Download di %@ **%@**…"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio **%@** wordt gedownload…"
+            "value" : "%@ **%@** wordt gedownload…"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pobieranie BetterAudio **%@**…"
+            "value" : "Pobieranie %@ **%@**…"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "正在下载 BetterAudio **%@**…"
+            "value" : "正在下载 %@ **%@**…"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "正在下載 BetterAudio **%@**…"
+            "value" : "正在下載 %@ **%@**…"
           }
         }
       }
@@ -1215,6 +1447,122 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "下載中 — %lld%%"
+          }
+        }
+      }
+    },
+    "Every 30 days" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle 30 Tage"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Every 30 days"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cada 30 días"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tous les 30 jours"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ogni 30 giorni"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elke 30 dagen"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Co 30 dni"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每 30 天"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每 30 天"
+          }
+        }
+      }
+    },
+    "Every 7 days" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle 7 Tage"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Every 7 days"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cada 7 días"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tous les 7 jours"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ogni 7 giorni"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elke 7 dagen"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Co 7 dni"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每 7 天"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每 7 天"
           }
         }
       }
@@ -1567,6 +1915,64 @@
         }
       }
     },
+    "Later" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Später"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Later"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Más tarde"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plus tard"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Più tardi"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Later"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Później"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "稍后"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "稍後"
+          }
+        }
+      }
+    },
     "Manual" : {
       "localizations" : {
         "de" : {
@@ -1683,60 +2089,60 @@
         }
       }
     },
-    "Move BetterAudio to Applications" : {
+    "Move %@ to Applications" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio in „Programme“ verschieben"
+            "value" : "%@ in „Programme“ verschieben"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Move BetterAudio to Applications"
+            "value" : "Move %@ to Applications"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mover BetterAudio a Aplicaciones"
+            "value" : "Mover %@ a Aplicaciones"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Déplacer BetterAudio vers Applications"
+            "value" : "Déplacer %@ vers Applications"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sposta BetterAudio in Applicazioni"
+            "value" : "Sposta %@ in Applicazioni"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Verplaats BetterAudio naar Programma’s"
+            "value" : "Verplaats %@ naar Programma’s"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Przenieś BetterAudio do Aplikacji"
+            "value" : "Przenieś %@ do Aplikacji"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "将 BetterAudio 移到“应用程序”"
+            "value" : "将 %@ 移到“应用程序”"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "將 BetterAudio 移到「應用程式」"
+            "value" : "將 %@ 移到「應用程式」"
           }
         }
       }
@@ -1799,6 +2205,64 @@
         }
       }
     },
+    "Never" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nie"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Never"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nunca"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jamais"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mai"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nooit"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nigdy"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从不"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "永不"
+          }
+        }
+      }
+    },
     "No downloadable asset found" : {
       "localizations" : {
         "de" : {
@@ -1853,6 +2317,64 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "未找到可下載的檔案"
+          }
+        }
+      }
+    },
+    "OK" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aceptar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "好"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "好"
           }
         }
       }
@@ -1973,60 +2495,60 @@
         }
       }
     },
-    "Please drag BetterAudio to your Applications folder manually, then relaunch.\n\n%@" : {
+    "Please drag %@ to your Applications folder manually, then relaunch.\n\n%@" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bitte ziehe BetterAudio manuell in deinen Programme-Ordner und starte es neu.\n\n%@"
+            "value" : "Bitte ziehe %@ manuell in deinen Programme-Ordner und starte es neu.\n\n%@"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Please drag BetterAudio to your Applications folder manually, then relaunch.\n\n%@"
+            "value" : "Please drag %@ to your Applications folder manually, then relaunch.\n\n%@"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Arrastra BetterAudio manualmente a la carpeta Aplicaciones y vuelve a abrirlo.\n\n%@"
+            "value" : "Arrastra %@ manualmente a la carpeta Aplicaciones y vuelve a abrirlo.\n\n%@"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Veuillez faire glisser BetterAudio manuellement dans votre dossier Applications, puis le relancer.\n\n%@"
+            "value" : "Veuillez faire glisser %@ manuellement dans votre dossier Applications, puis le relancer.\n\n%@"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Trascina manualmente BetterAudio nella cartella Applicazioni, poi riavvialo.\n\n%@"
+            "value" : "Trascina manualmente %@ nella cartella Applicazioni, poi riavvialo.\n\n%@"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sleep BetterAudio handmatig naar je map Programma’s en start het daarna opnieuw.\n\n%@"
+            "value" : "Sleep %@ handmatig naar je map Programma’s en start het daarna opnieuw.\n\n%@"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Przeciągnij BetterAudio ręcznie do folderu Aplikacje, a następnie uruchom ponownie.\n\n%@"
+            "value" : "Przeciągnij %@ ręcznie do folderu Aplikacje, a następnie uruchom ponownie.\n\n%@"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "请手动将 BetterAudio 拖到“应用程序”文件夹，然后重新启动。\n\n%@"
+            "value" : "请手动将 %@ 拖到“应用程序”文件夹，然后重新启动。\n\n%@"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "請手動將 BetterAudio 拖到「應用程式」檔案夾，然後重新啟動。\n\n%@"
+            "value" : "請手動將 %@ 拖到「應用程式」檔案夾，然後重新啟動。\n\n%@"
           }
         }
       }
@@ -2147,48 +2669,106 @@
         }
       }
     },
-    "Release Notes" : {
+    "Quit" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Versionshinweise"
+            "value" : "Beenden"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Release Notes"
+            "value" : "Quit"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Notas de la versión"
+            "value" : "Salir"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Notes de version"
+            "value" : "Quitter"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Note di rilascio"
+            "value" : "Esci"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Release-opmerkingen"
+            "value" : "Stop"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Notatki o wydaniu"
+            "value" : "Zakończ"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "退出"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "結束"
+          }
+        }
+      }
+    },
+    "RELEASE NOTES" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "VERSIONSHINWEISE"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "RELEASE NOTES"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NOTAS DE LA VERSIÓN"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NOTES DE VERSION"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NOTE DI RILASCIO"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "RELEASE-OPMERKINGEN"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NOTATKI O WYDANIU"
           }
         },
         "zh-Hans" : {
@@ -2205,118 +2785,118 @@
         }
       }
     },
-    "Remind Me Later" : {
+    "Remind me in 3 days" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Später erinnern"
+            "value" : "In 3 Tagen erinnern"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Remind Me Later"
+            "value" : "Remind me in 3 days"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Recordar más tarde"
+            "value" : "Recordármelo en 3 días"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Me rappeler plus tard"
+            "value" : "Me le rappeler dans 3 jours"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ricordamelo più tardi"
+            "value" : "Ricordamelo tra 3 giorni"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Herinner me later"
+            "value" : "Herinner me over 3 dagen"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Przypomnij mi później"
+            "value" : "Przypomnij za 3 dni"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "稍后提醒"
+            "value" : "3 天后提醒我"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "稍後提醒"
+            "value" : "3 天後提醒我"
           }
         }
       }
     },
-    "Restarting BetterAudio…" : {
+    "Restarting %@…" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio wird neu gestartet…"
+            "value" : "%@ wird neu gestartet…"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Restarting BetterAudio…"
+            "value" : "Restarting %@…"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Reiniciando BetterAudio…"
+            "value" : "Reiniciando %@…"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Redémarrage de BetterAudio…"
+            "value" : "Redémarrage de %@…"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Riavvio di BetterAudio…"
+            "value" : "Riavvio di %@…"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "BetterAudio opnieuw starten…"
+            "value" : "%@ opnieuw starten…"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ponowne uruchamianie BetterAudio…"
+            "value" : "Ponowne uruchamianie %@…"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "正在重新启动 BetterAudio…"
+            "value" : "正在重新启动 %@…"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "正在重新啟動 BetterAudio…"
+            "value" : "正在重新啟動 %@…"
           }
         }
       }
@@ -2495,60 +3075,176 @@
         }
       }
     },
-    "The update has been downloaded. Please drag the new BetterAudio app to your Applications folder to complete the installation.\n\nAfter installation, restart BetterAudio." : {
+    "The previous update to v%@ didn't complete. Try again or download from the releases page." : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Das Update wurde heruntergeladen. Bitte ziehe die neue BetterAudio-App in deinen Programme-Ordner, um die Installation abzuschließen.\n\nStarte BetterAudio nach der Installation neu."
+            "value" : "Das vorherige Update auf v%@ wurde nicht abgeschlossen. Versuchen Sie es erneut oder laden Sie es von der Releases-Seite herunter."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The update has been downloaded. Please drag the new BetterAudio app to your Applications folder to complete the installation.\n\nAfter installation, restart BetterAudio."
+            "value" : "The previous update to v%@ didn't complete. Try again or download from the releases page."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La actualización se ha descargado. Arrastra la nueva app BetterAudio a tu carpeta de Aplicaciones para completar la instalación.\n\nDespués de la instalación, reinicia BetterAudio."
+            "value" : "La actualización anterior a la v%@ no se completó. Inténtalo de nuevo o descárgala desde la página de versiones."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La mise à jour a été téléchargée. Veuillez glisser la nouvelle application BetterAudio dans votre dossier Applications pour terminer l'installation.\n\nAprès l'installation, redémarrez BetterAudio."
+            "value" : "La mise à jour précédente vers la v%@ ne s’est pas terminée. Réessayez ou téléchargez-la depuis la page des versions."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L'aggiornamento è stato scaricato. Trascina la nuova app BetterAudio nella cartella Applicazioni per completare l'installazione.\n\nDopo l'installazione, riavvia BetterAudio."
+            "value" : "L’aggiornamento precedente alla v%@ non è stato completato. Riprova o scaricalo dalla pagina delle versioni."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "De update is gedownload. Sleep de nieuwe BetterAudio-app naar je map Programma's om de installatie te voltooien.\n\nStart BetterAudio opnieuw na de installatie."
+            "value" : "De vorige update naar v%@ is niet voltooid. Probeer het opnieuw of download hem van de releasespagina."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aktualizacja została pobrana. Przeciągnij nową aplikację BetterAudio do folderu Aplikacje, aby zakończyć instalację.\n\nPo instalacji uruchom ponownie BetterAudio."
+            "value" : "Poprzednia aktualizacja do v%@ nie została ukończona. Spróbuj ponownie lub pobierz ją ze strony wydań."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "更新已下载。请将新的 BetterAudio 应用拖到应用程序文件夹以完成安装。\n\n安装后，请重新启动 BetterAudio。"
+            "value" : "上次更新到 v%@ 未完成。请重试或从发布页面下载。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "更新已下載。請將新的 BetterAudio 應用拖到應用程式文件夾以完成安裝。\n\n安裝後，請重新啟動 BetterAudio。"
+            "value" : "上次更新到 v%@ 未完成。請重試或從發布頁面下載。"
+          }
+        }
+      }
+    },
+    "The update has been downloaded. Please drag the new %@ app to your Applications folder to complete the installation.\n\nAfter installation, restart %@." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Update wurde heruntergeladen. Bitte ziehe die neue %@-App in deinen Programme-Ordner, um die Installation abzuschließen.\n\nStarte %@ nach der Installation neu."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The update has been downloaded. Please drag the new %@ app to your Applications folder to complete the installation.\n\nAfter installation, restart %@."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La actualización se ha descargado. Arrastra la nueva app %@ a tu carpeta de Aplicaciones para completar la instalación.\n\nDespués de la instalación, reinicia %@."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La mise à jour a été téléchargée. Veuillez glisser la nouvelle application %@ dans votre dossier Applications pour terminer l'installation.\n\nAprès l'installation, redémarrez %@."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L'aggiornamento è stato scaricato. Trascina la nuova app %@ nella cartella Applicazioni per completare l'installazione.\n\nDopo l'installazione, riavvia %@."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De update is gedownload. Sleep de nieuwe %@-app naar je map Programma's om de installatie te voltooien.\n\nStart %@ opnieuw na de installatie."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualizacja została pobrana. Przeciągnij nową aplikację %@ do folderu Aplikacje, aby zakończyć instalację.\n\nPo instalacji uruchom ponownie %@."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更新已下载。请将新的 %@ 应用拖到应用程序文件夹以完成安装。\n\n安装后，请重新启动 %@。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更新已下載。請將新的 %@ 應用拖到應用程式文件夾以完成安裝。\n\n安裝後，請重新啟動 %@。"
+          }
+        }
+      }
+    },
+    "This release is not signed with a verification manifest." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diese Version ist nicht mit einem Prüf-Manifest signiert."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This release is not signed with a verification manifest."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta versión no está firmada con un manifiesto de verificación."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cette version n’est pas signée avec un manifeste de vérification."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Questa versione non è firmata con un manifest di verifica."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deze release is niet ondertekend met een verificatiemanifest."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ta wersja nie została podpisana manifestem weryfikacyjnym."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此版本未使用校验清单签名。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此版本未使用驗證資訊清單簽章。"
           }
         }
       }
@@ -2723,6 +3419,122 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "更新已下載"
+          }
+        }
+      }
+    },
+    "Update verification failed." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Update-Überprüfung fehlgeschlagen."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Update verification failed."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error al verificar la actualización."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Échec de la vérification de la mise à jour."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verifica dell’aggiornamento non riuscita."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verificatie van de update is mislukt."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weryfikacja aktualizacji nie powiodła się."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更新校验失败。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更新驗證失敗。"
+          }
+        }
+      }
+    },
+    "Update verification key is invalid." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Prüfschlüssel für Updates ist ungültig."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Update verification key is invalid."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La clave de verificación de actualizaciones no es válida."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La clé de vérification des mises à jour n’est pas valide."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La chiave di verifica degli aggiornamenti non è valida."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De verificatiesleutel voor updates is ongeldig."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klucz weryfikacji aktualizacji jest nieprawidłowy."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更新校验密钥无效。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更新驗證金鑰無效。"
           }
         }
       }
@@ -2955,64 +3767,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "您仍在使用 Beta 通道"
-          }
-        }
-      }
-    },
-    "•" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "•"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "•"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "•"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "•"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "•"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "•"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "•"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "•"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "•"
           }
         }
       }
