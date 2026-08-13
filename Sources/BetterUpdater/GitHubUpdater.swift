@@ -287,6 +287,9 @@ public final class GitHubUpdater: ObservableObject {
     /// Timestamp of the last failed silent check. Used by the scheduler to
     /// retry sooner than the next full interval after a network blip.
     private var lastFailureDate: Date?
+    /// Set when GitHub answered a check with a rate-limit 403/429; the scheduler
+    /// won't fire again before this moment. Cleared on any successful check.
+    private var rateLimitedUntil: Date?
     
     // MARK: - Computed Properties
     
@@ -406,6 +409,7 @@ public final class GitHubUpdater: ObservableObject {
             latestRelease = release
             lastCheckDate = Date()
             lastFailureDate = nil
+            rateLimitedUntil = nil
             UserDefaults.standard.set(Date().timeIntervalSince1970, forKey: "GitHubUpdater.lastCheckDate")
 
             let currentVersion = HostAppInfo.appVersion
@@ -472,6 +476,9 @@ public final class GitHubUpdater: ObservableObject {
             let errorMessage = (error as? UpdateError)?.localizedDescription ?? error.localizedDescription
             UpdaterLog.updater.error("Update check failed: \(errorMessage)")
             lastFailureDate = Date()
+            if let updateError = error as? UpdateError, case .rateLimited(let until) = updateError {
+                rateLimitedUntil = until
+            }
             if !isSilent {
                 state = .error(errorMessage)
             } else {
@@ -811,6 +818,20 @@ public final class GitHubUpdater: ObservableObject {
         guard httpResponse.statusCode == 200 else {
             if httpResponse.statusCode == 404 {
                 throw UpdateError.noReleasesFound
+            }
+            // 403/429 is the anonymous 60/hour quota (shared per IP, so a NAT'd
+            // network can burn it). Surface the reset time instead of a generic
+            // network error so the scheduler stops hammering a closed door.
+            if httpResponse.statusCode == 403 || httpResponse.statusCode == 429 {
+                let retryAt = Self.rateLimitRetryDate(
+                    retryAfter: httpResponse.value(forHTTPHeaderField: "Retry-After"),
+                    rateLimitRemaining: httpResponse.value(forHTTPHeaderField: "x-ratelimit-remaining"),
+                    rateLimitReset: httpResponse.value(forHTTPHeaderField: "x-ratelimit-reset"),
+                    now: Date()
+                )
+                if let retryAt {
+                    throw UpdateError.rateLimited(until: retryAt)
+                }
             }
             throw UpdateError.networkError("HTTP \(httpResponse.statusCode)")
         }
@@ -1427,6 +1448,7 @@ public final class GitHubUpdater: ObservableObject {
             interval: interval,
             lastCheckDate: lastCheckDate,
             lastFailureDate: lastFailureDate,
+            retryNotBefore: rateLimitedUntil,
             now: Date()
         )
     }
@@ -1437,19 +1459,51 @@ public final class GitHubUpdater: ObservableObject {
         interval: TimeInterval,
         lastCheckDate: Date?,
         lastFailureDate: Date?,
+        retryNotBefore: Date? = nil,
         now: Date
     ) -> Date {
         let rawAnchor = lastCheckDate ?? now
         let safeAnchor = rawAnchor > now ? now : rawAnchor
         let successNext = safeAnchor.addingTimeInterval(interval)
 
-        guard let failure = lastFailureDate,
-              failure > (lastCheckDate ?? .distantPast) else {
-            return successNext
+        let scheduled: Date
+        if let failure = lastFailureDate, failure > (lastCheckDate ?? .distantPast) {
+            let safeFailure = failure > now ? now : failure
+            scheduled = safeFailure.addingTimeInterval(GitHubUpdaterConfig.errorRetryInterval)
+        } else {
+            scheduled = successNext
         }
 
-        let safeFailure = failure > now ? now : failure
-        return safeFailure.addingTimeInterval(GitHubUpdaterConfig.errorRetryInterval)
+        // A rate-limit reset outranks the retry cadence: retrying before it
+        // just spends another 403 and pushes the window further out.
+        guard let retryNotBefore else { return scheduled }
+        return max(scheduled, retryNotBefore)
+    }
+
+    /// When it's worth retrying after a 403/429, per GitHub's headers:
+    /// `Retry-After` (seconds, secondary limits) wins, else `x-ratelimit-reset`
+    /// (epoch seconds) when the remaining quota is actually 0. Returns nil for a
+    /// 403 that isn't a rate limit, so the caller keeps its generic error path.
+    /// Clamped to an hour so a bogus header can't park updates indefinitely.
+    nonisolated static func rateLimitRetryDate(
+        retryAfter: String?,
+        rateLimitRemaining: String?,
+        rateLimitReset: String?,
+        now: Date
+    ) -> Date? {
+        let maxBackoff = now.addingTimeInterval(60 * 60)
+
+        if let seconds = retryAfter.flatMap({ TimeInterval($0.trimmingCharacters(in: .whitespaces)) }), seconds > 0 {
+            return min(now.addingTimeInterval(seconds), maxBackoff)
+        }
+
+        guard rateLimitRemaining.flatMap({ Int($0.trimmingCharacters(in: .whitespaces)) }) == 0,
+              let epoch = rateLimitReset.flatMap({ TimeInterval($0.trimmingCharacters(in: .whitespaces)) })
+        else { return nil }
+
+        let reset = Date(timeIntervalSince1970: epoch)
+        guard reset > now else { return nil }
+        return min(reset, maxBackoff)
     }
     
     private func cancelAutomaticCheck() {

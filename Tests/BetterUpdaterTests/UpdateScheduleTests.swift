@@ -76,4 +76,71 @@ final class UpdateScheduleTests: XCTestCase {
         )
         XCTAssertEqual(next, now.addingTimeInterval(GitHubUpdaterConfig.errorRetryInterval))
     }
+
+    // MARK: - Rate limit backoff
+
+    func testRateLimitResetOutranksTheShorterRetryInterval() {
+        let reset = now.addingTimeInterval(45 * 60)
+        let next = GitHubUpdater.nextCheckDate(
+            interval: interval,
+            lastCheckDate: now.addingTimeInterval(-3 * interval),
+            lastFailureDate: now,
+            retryNotBefore: reset,
+            now: now
+        )
+        XCTAssertEqual(next, reset)
+    }
+
+    func testElapsedRateLimitDoesNotDelayTheRetry() {
+        let next = GitHubUpdater.nextCheckDate(
+            interval: interval,
+            lastCheckDate: nil,
+            lastFailureDate: now,
+            retryNotBefore: now.addingTimeInterval(-60),
+            now: now
+        )
+        XCTAssertEqual(next, now.addingTimeInterval(GitHubUpdaterConfig.errorRetryInterval))
+    }
+
+    func testRetryAfterHeaderWins() {
+        let retry = GitHubUpdater.rateLimitRetryDate(
+            retryAfter: "60",
+            rateLimitRemaining: "0",
+            rateLimitReset: String(now.addingTimeInterval(3000).timeIntervalSince1970),
+            now: now
+        )
+        XCTAssertEqual(retry, now.addingTimeInterval(60))
+    }
+
+    func testResetHeaderUsedWhenQuotaIsExhausted() {
+        let reset = now.addingTimeInterval(1800)
+        let retry = GitHubUpdater.rateLimitRetryDate(
+            retryAfter: nil,
+            rateLimitRemaining: "0",
+            rateLimitReset: String(reset.timeIntervalSince1970),
+            now: now
+        )
+        XCTAssertEqual(retry, reset)
+    }
+
+    /// A 403 with quota left is a different failure (blocked, bad token, abuse
+    /// detection without headers) — the caller must keep its generic error path.
+    func testNonRateLimitForbiddenReturnsNil() {
+        XCTAssertNil(GitHubUpdater.rateLimitRetryDate(
+            retryAfter: nil,
+            rateLimitRemaining: "59",
+            rateLimitReset: String(now.addingTimeInterval(1800).timeIntervalSince1970),
+            now: now
+        ))
+    }
+
+    func testAbsurdHeaderIsClampedToAnHour() {
+        let retry = GitHubUpdater.rateLimitRetryDate(
+            retryAfter: "999999",
+            rateLimitRemaining: nil,
+            rateLimitReset: nil,
+            now: now
+        )
+        XCTAssertEqual(retry, now.addingTimeInterval(3600))
+    }
 }

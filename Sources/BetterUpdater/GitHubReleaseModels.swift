@@ -169,6 +169,9 @@ enum UpdateCheckResult: Sendable {
 
 enum UpdateError: Error, LocalizedError, Sendable {
     case networkError(String)
+    /// GitHub refused the request because the (anonymous, per-IP) API quota is
+    /// spent. `until` is when it's worth trying again, from the response headers.
+    case rateLimited(until: Date)
     case invalidResponse
     case noReleasesFound
     case parsingError(String)
@@ -181,6 +184,9 @@ enum UpdateError: Error, LocalizedError, Sendable {
         switch self {
         case .networkError(let message):
             return "Network error: \(message)"
+        case .rateLimited(let until):
+            let formatted = until.formatted(date: .omitted, time: .shortened)
+            return "GitHub rate limit reached. Try again after \(formatted)."
         case .invalidResponse:
             return "Invalid response from GitHub"
         case .noReleasesFound:
