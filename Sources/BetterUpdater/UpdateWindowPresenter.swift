@@ -190,8 +190,12 @@ public final class UpdateWindowPresenter {
                 case .idle, .upToDate:
                     // Auto-close when updater resets
                     self.hide()
+                case .downloading, .readyToInstall, .installing:
+                    // The user already chose to update; floating through the work
+                    // covered their other windows (rokartur/BetterCmdTab#177).
+                    self.panel?.level = .normal
                 default:
-                    break
+                    self.panel?.level = .floating
                 }
             }
 
